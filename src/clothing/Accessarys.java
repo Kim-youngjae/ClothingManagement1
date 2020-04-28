@@ -6,7 +6,6 @@ public class Accessarys extends Clothing {
 	public Accessarys(ClothingKind kind) {
 		super(kind);
 	}
-
 	public void getUserInput(Scanner input) {
 
 		System.out.print("악세사리 종류가 무엇인가요? :");
