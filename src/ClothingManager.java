@@ -28,7 +28,7 @@ public class ClothingManager {
 			System.out.print("종류가 무엇인지 고르세요 1번 ~ 4번 :");
 			kind = input.nextInt();
 			if (kind == 1) {
-				clothInput = (ClothInput) new Cloth(ClothingKind.Cloth);
+				clothInput = new Cloth(ClothingKind.Cloth);
 				clothInput.getUserInput(input);
 				clothings.add(clothInput);
 				break;
@@ -105,16 +105,16 @@ public class ClothingManager {
 					
 					switch(num) {
 					case 1 :
-						setClothname(cloth, input);
+						cloth.setClothname(input);
 						break;
 					case 2 :
-						setClothWhos(cloth, input);
+						cloth.setClothWhos(input);
 						break;
 					case 3 :
-						setClothWeather(cloth, input);
+						cloth.setClothWeather(input);
 						break;
 					case 4 :
-						setClothWarning(cloth, input);
+						cloth.setClothWarning(input);
 						break;
 						default :
 							continue;
@@ -129,30 +129,6 @@ public class ClothingManager {
 		for (int i = 0; i < clothings.size(); i++) {
 			clothings.get(i).printInfo();
 		}
-	}
-	
-	public void setClothname(ClothInput clothname, Scanner input) {
-		System.out.print("옷 종류가 무엇인가요? :");
-		String name = input.next();
-		clothname.setName(name);
-	}
-	
-	public void setClothWhos(ClothInput cloth, Scanner input) {
-		System.out.print("누구의 옷입니까? :");
-		String whos = input.next();
-		cloth.setWhos(whos);
-	}
-	
-	public void setClothWeather(ClothInput cloth, Scanner input) {
-		System.out.print("어느 계절에 적합한 옷 입니까? :");
-		String weather = input.next();
-		cloth.setWeather(weather);
-	}
-	
-	public void setClothWarning(ClothInput cloth, Scanner input) {
-		System.out.print("옷 관리시 주의 사항 :");
-		String warning = input.next();
-		cloth.setWarning(warning);
 	}
 	
 	public void showEditMenu() {

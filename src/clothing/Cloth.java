@@ -2,19 +2,19 @@ package clothing;
 
 import java.util.Scanner;
 
-public class HeadWears extends StuffCloth {
-	public HeadWears(ClothingKind kind) {
+public class Cloth extends Clothing {
+
+	public Cloth(ClothingKind kind) {
 		super(kind);
 	}
-	
-	public void getUserInput(Scanner input) {
 
+	public void getUserInput(Scanner input) {
 		setClothname(input);
 
-		setClothWhoswithYN(input);
-		
+		setClothWhos(input);
+
 		setClothWeather(input);
-		
+
 		setClothWarning(input);
 	}
 
@@ -22,5 +22,5 @@ public class HeadWears extends StuffCloth {
 		String skind = getKindString();
 		System.out.println("kind :" + skind + " name: " + this.name + " whos: " + this.whos + " weather: " + this.weather + " warning: " + this.warning);
 	}
-	
+
 }

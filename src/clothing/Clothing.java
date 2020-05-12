@@ -2,7 +2,7 @@ package clothing;
 
 import java.util.Scanner;
 
-public abstract class Clothing {
+public abstract class Clothing implements ClothInput {
 
 	protected ClothingKind kind = ClothingKind.Cloth;
 	protected String name;
@@ -83,10 +83,52 @@ public abstract class Clothing {
 
 	public abstract void printInfo();
 	
-	/*public void getName(String name){
-		this.name = name;
-		this.name -> 필드 / name -> 파라미터 / 필드와 파라미터의 데이터 형은 같아야 한다.
-	}*/
+	public void setClothname(Scanner input) {
+		System.out.print("종류가 무엇인가요? :");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setClothWhos(Scanner input) {
+		System.out.print("누구의 것입니까? :");
+		String whos = input.next();
+		this.setWhos(whos);
+	}
+	
+	public void setClothWeather(Scanner input) {
+		System.out.print("어느 계절에 적합합니까? :");
+		String weather = input.next();
+		this.setWeather(weather);
+	}
+	
+	public void setClothWarning(Scanner input) {
+		System.out.print("관리시 주의 사항 :");
+		String warning = input.next();
+		this.setWarning(warning);
+	}
+	
+	public String getKindString() {
+		
+		String skind = "none";
+		switch(this.kind) {
+		case Cloth:
+			skind = "Cloth";
+			break;
+		case Accessary:
+			skind = "Accessary";
+			break;
+		case Bag:
+			skind = "Bag";
+			break;
+		case HeadWear:
+			skind = "HeadWear";
+			break;
+		default:
+		}
+		
+		return skind;	
+	}
+	
 
 
 }
