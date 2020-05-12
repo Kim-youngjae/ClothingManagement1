@@ -2,7 +2,7 @@ package clothing;
 
 import java.util.Scanner;
 
-public class Bags extends Clothing {
+public class Bags extends Clothing implements ClothInput {
 	public Bags(ClothingKind kind) {
 		super(kind);
 	}
@@ -39,4 +39,25 @@ public class Bags extends Clothing {
 		String warning = input.next();
 		this.setWarning(warning);
 	}
+	
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Cloth:
+			skind = "Cloth";
+			break;
+		case Accessary:
+			skind = "Accessary";
+			break;
+		case Bag:
+			skind = "Bag";
+			break;
+		case HeadWear:
+			skind = "HeadWear";
+			break;
+		default:
+		}
+		System.out.println("kind :" + skind + " name: " + this.name + " whos: " + this.whos + " weather: " + this.weather + " warning: " + this.warning);
+	}
+	
 }
