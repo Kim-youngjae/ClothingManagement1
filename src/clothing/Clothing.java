@@ -11,7 +11,7 @@ public abstract class Clothing implements ClothInput {
 	protected String warning;
 	//	protected는 자식 클래스 외에 다른 클래스 혹은 패키지에서는 접근이 불가능한 변수 선언
 
-	public Clothing() { // 근데 왜 이렇게 생성자를 몇개를 만드는거지? -> 하나만 만들어도 된다 다만 파라미터를 몇개를 받을 지 정할 때는 밑의 생성자처럼 만들면 된다.
+	public Clothing() {
 	}
 	
 	public Clothing(ClothingKind kind) {
@@ -20,7 +20,7 @@ public abstract class Clothing implements ClothInput {
 
 	public Clothing(String name, String whos) {
 		this.name = name;
-		this.whos = whos; //this(나의 객체의 라는 의미를 가짐)의미 필드의 name과 생성자의 name과 구분하기 위해
+		this.whos = whos;
 	}
 
 	public Clothing(ClothingKind kind, String name, String whos, String weather, String warning) {
