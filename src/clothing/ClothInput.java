@@ -2,6 +2,8 @@ package clothing;
 
 import java.util.Scanner;
 
+import Exceptions.WeatherFormatException;
+
 public interface ClothInput {
 	
 	public String getName();
@@ -10,7 +12,7 @@ public interface ClothInput {
 	
 	public void setWhos(String whos);
 	
-	public void setWeather(String weather);
+	public void setWeather(String weather) throws WeatherFormatException;
 	
 	public void setWarning(String warning);
 	

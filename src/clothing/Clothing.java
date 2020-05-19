@@ -2,6 +2,8 @@ package clothing;
 
 import java.util.Scanner;
 
+import Exceptions.WeatherFormatException;
+
 public abstract class Clothing implements ClothInput {
 
 	protected ClothingKind kind = ClothingKind.Cloth;
@@ -13,7 +15,7 @@ public abstract class Clothing implements ClothInput {
 
 	public Clothing() {
 	}
-	
+
 	public Clothing(ClothingKind kind) {
 		this.kind = kind;
 	}
@@ -67,7 +69,10 @@ public abstract class Clothing implements ClothInput {
 	}
 
 
-	public void setWeather(String weather) {
+	public void setWeather(String weather) throws WeatherFormatException {
+		if(weather.contains("사계절") || weather.equals("")) {
+			throw new WeatherFormatException();
+		}
 		this.weather = weather;
 	}
 
@@ -82,33 +87,41 @@ public abstract class Clothing implements ClothInput {
 	}
 
 	public abstract void printInfo();
-	
+
 	public void setClothname(Scanner input) {
 		System.out.print("종류가 무엇인가요? :");
 		String name = input.next();
 		this.setName(name);
 	}
-	
+
 	public void setClothWhos(Scanner input) {
 		System.out.print("누구의 것입니까? :");
 		String whos = input.next();
 		this.setWhos(whos);
 	}
-	
+
 	public void setClothWeather(Scanner input) {
-		System.out.print("어느 계절에 적합합니까? :");
-		String weather = input.next();
-		this.setWeather(weather);
+		String weather = "";
+		while(!weather.contains("봄") && !weather.contains("여름") && !weather.contains("가을") && !weather.contains("겨울")) {
+			System.out.print("어느 계절에 적합합니까? :");
+			weather = input.next();
+			try {
+				this.setWeather(weather);
+			} catch (WeatherFormatException e) {
+				System.out.println("Incorrect Weather Format, plz type between 봄, 여름, 가을, 겨울.");
+				System.out.println("if this thing can use for four season, plz type 'fourseason'");
+			}
+		}
 	}
-	
+
 	public void setClothWarning(Scanner input) {
 		System.out.print("관리시 주의 사항 :");
 		String warning = input.next();
 		this.setWarning(warning);
 	}
-	
+
 	public String getKindString() {
-		
+
 		String skind = "none";
 		switch(this.kind) {
 		case Cloth:
@@ -125,10 +138,7 @@ public abstract class Clothing implements ClothInput {
 			break;
 		default:
 		}
-		
+
 		return skind;	
 	}
-	
-
-
 }
