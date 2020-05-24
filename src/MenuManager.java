@@ -1,9 +1,14 @@
 
+import java.lang.System.Logger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import log.EventLogger;
+
 
 public class MenuManager {
+	static EventLogger logger = new EventLogger("log.txt");
+	
 	public static void main (String[] args) {
 		Scanner input = new Scanner(System.in);
 		ClothingManager clothingManager = new ClothingManager(input); // 왜 위의 문장이랑 자리를 바꾸는거지 굳이?
@@ -21,15 +26,19 @@ public class MenuManager {
 				switch(num) {
 				case 1 :
 					clothingManager.addClothes();
+					logger.log("add a cloth");
 					break;
 				case 2 :
 					clothingManager.deleteClothes();
+					logger.log("delete a cloth");
 					break;
 				case 3 :
 					clothingManager.editClothes();
+					logger.log("edit a cloth");
 					break;
 				case 4 :
 					clothingManager.viewClothes();
+					logger.log("view a cloth");
 					break;
 				default :
 					continue;
