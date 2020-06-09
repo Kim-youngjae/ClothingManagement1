@@ -7,9 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class ClothAdder extends JFrame {
+public class ClothAdder extends JPanel {
+	
+	WindowFrame frame;
 
-	public ClothAdder() {
+	public ClothAdder(WindowFrame frame) {
+		
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -46,9 +51,7 @@ public class ClothAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6); // 그리드의 형태를 지정하여 주었습니다
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
 		
 		

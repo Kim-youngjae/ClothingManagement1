@@ -1,13 +1,19 @@
 package gui;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class ClothingViewer extends JFrame {
+public class ClothingViewer extends JPanel {
+	
+	WindowFrame frame;
 
-	public ClothingViewer() {
+	public ClothingViewer(WindowFrame frame) {
+		
+		this.frame = frame;
+		
 		DefaultTableModel model =  new DefaultTableModel();
 		model.addColumn("ClothType");
 		model.addColumn("Who's Cloth");
@@ -18,9 +24,7 @@ public class ClothingViewer extends JFrame {
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+		
 	}
 
 }
