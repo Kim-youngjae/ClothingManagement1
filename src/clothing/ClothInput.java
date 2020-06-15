@@ -10,9 +10,15 @@ public interface ClothInput {
 	
 	public void setName(String name);
 	
+	public String getWhos();
+	
 	public void setWhos(String whos);
 	
+	public String getWeather();
+	
 	public void setWeather(String weather) throws WeatherFormatException;
+	
+	public String getWarning();
 	
 	public void setWarning(String warning);
 	

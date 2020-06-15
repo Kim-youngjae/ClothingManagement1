@@ -1,3 +1,4 @@
+package manager;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import gui.WindowFrame;
 import log.EventLogger;
  
 
@@ -23,6 +26,7 @@ public class MenuManager {
 			clothingManager.setScanner(input);
 		}
 		
+		WindowFrame frame = new WindowFrame(clothingManager);
 		selectMenu(input, clothingManager);
 		
 		putObject(clothingManager, "clothingmanager.ser");

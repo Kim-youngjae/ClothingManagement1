@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -7,6 +8,7 @@ import clothing.Accessarys;
 import clothing.Bags;
 import clothing.Cloth;
 import clothing.ClothInput;
+import clothing.Clothing;
 import clothing.ClothingKind;
 import clothing.HeadWears;
 
@@ -108,7 +110,7 @@ public class ClothingManager implements Serializable {
 
 		}
 	}
-
+	
 	public void editClothes() {
 		System.out.print("옷 종류가 무엇인가요? :");
 		String clothName = input.next();
@@ -149,10 +151,17 @@ public class ClothingManager implements Serializable {
 			clothings.get(i).printInfo();
 		}
 	}
+	
+	public int size() {
+		return clothings.size();
+	}
+	
+	public ClothInput get(int index) {
+		return (Clothing) clothings.get(index);
+	}
 
 	public void showEditMenu() {
-
-
+		
 		System.out.println("** Cloth Info Edit Menu **");
 		System.out.println("	1. Edit Clothes");
 		System.out.println("	2. Edit Who's");
